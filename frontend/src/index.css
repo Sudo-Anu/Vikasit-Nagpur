@@ -1,0 +1,37 @@
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Panels Matching Stitch Design */
+.stitch-panel {
+    background-color: rgba(15, 23, 42, 0.75);
+    /* Dark-tinted semi-transparent background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+    border-radius: 0.75rem;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Dynamic placement of maplibre bottom-right controls based on sidebar state */
+.sidebar-open .maplibregl-ctrl-bottom-right {
+    right: 400px;
+    /* Width of open sidebar + padding */
+    transition: right 0.3s ease;
+}
+
+.sidebar-closed .maplibregl-ctrl-bottom-right {
+    right: 80px;
+    /* Width of closed sidebar + padding */
+    transition: right 0.3s ease;
+}
